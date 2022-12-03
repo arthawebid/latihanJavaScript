@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form 01 Identitas Mahasiswa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+        .frmsalah{
+            color:red;
+            font-size: 10px;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <form method="get" action="penerima.html">
+
+        <div>
+            <label class="form-label">NIM</label>
+            <input type="text" name="txNIM" id="txNIM" class="form-control">
+            <div class="frmsalah" id="ErrtxNIM">NIM tidak boleh kurang dari 8 digit</div>
+        </div>    
+        
+        <div>
+            <label class="form-label">NAMA MAHASISWA</label>
+            <input type="text" name="txNAMA" id="txNAMA" class="form-control">
+            <div class="frmsalah" id="ErrtxNAMA">NAMA tidak boleh kosong</div>
+        </div>    
+
+        <div>
+            <label class="form-label">TGL Lahir</label>
+            <input type="date" name="txTGLAHIR" id="txTGLAHIR" class="form-control">
+        </div>
+
+        <div>
+            <label class="form-label">Jenis Kelamin</label>
+            <input type="radio" name="txJKEL" id="txJKEL" class="form-check-input">Laki-Laki
+            <input type="radio" name="txJKEL" id="txJKEL" class="form-check-input">Perempuan
+        </div>
+
+        <div>
+            <label class="form-label">Jenis Kelamin</label>
+            <select name="txJKEL" class="form-select">
+                <option>Pilih Jenis Kelamin</option>
+                <option>Laki-Laki</option>
+                <option>Perempuan</option>
+            </select>
+        </div>
+        
+        <div>
+            <button type="button" class="btn btn-success" onclick="cekform()">Simpan Data Mahasiswa</button>
+        </div>
+
+    </form>
+
+    <script>
+        document.getElementById("ErrtxNIM").style.visibility="hidden";
+
+        function cekform(){
+            let nim = document.getElementById("txNIM").value;
+
+            if(nim.length >= 8){
+                document.getElementById("ErrtxNIM").style.visibility="hidden";
+            }else{
+                document.getElementById("ErrtxNIM").style.visibility="visible";
+            }
+            
+        }
+
+    </script>    
+</body>
+</html>
